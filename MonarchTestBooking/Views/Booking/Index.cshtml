@@ -45,6 +45,9 @@ else
                 <div class="col-sm-1"> @flight.ArrivalAirport</div>
                 <div class="col-sm-1"> @flight.ArrivalTime</div>
                 <div class="col-sm-1"> @flight.FlightStatus</div>
+                <div class="col-sm-2">
+                    @Html.ActionLink("Book", "BookSeat", "Booking", new { FlightNumber = @flight.FlightNumber }, new { @class = "btn btn-primary" })
+                </div>
             </div>
         </div>
     }

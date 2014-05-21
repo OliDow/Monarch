@@ -14,6 +14,9 @@ namespace MonarchTestBooking.Models
         public string ArrivalAirport { get; set; }
         public string ArrivalAirportCode { get; set; }
         public DateTime ArrivalTime { get; set; }
+
+        public int SeatsOnFlight { get; set; }
+        public int SeatsBooked { get; set; }
     }
 
     // TODO Move this to somewhere a little more dynamic

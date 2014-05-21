@@ -1,4 +1,4 @@
-﻿using System;
+﻿    using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
@@ -31,6 +31,8 @@ namespace MonarchTestBooking.Tests.Controllers
                    ArrivalAirport = "BCN",
                    ArrivalAirportCode = "Barcelona",
                    ArrivalTime = new DateTime(2014, 6, 3, 20, 0, 0),
+                   SeatsOnFlight = 175,
+                   SeatsBooked = 0
                },
                new Flight
                {
@@ -42,6 +44,8 @@ namespace MonarchTestBooking.Tests.Controllers
                    ArrivalAirport = "Los Angeles International Airport",
                    ArrivalAirportCode = "LAX",
                    ArrivalTime = new DateTime(2014, 6, 2, 9, 0, 0),
+                   SeatsOnFlight = 175,
+                   SeatsBooked = 0
                },
                new Flight
                {
@@ -53,6 +57,8 @@ namespace MonarchTestBooking.Tests.Controllers
                    ArrivalAirport = "Barcelona",
                    ArrivalAirportCode = "BCN",
                    ArrivalTime = new DateTime(2014, 6, 3, 21, 0, 0),
+                   SeatsOnFlight = 175,
+                   SeatsBooked = 0
                },
                new Flight
                {
@@ -64,6 +70,8 @@ namespace MonarchTestBooking.Tests.Controllers
                    ArrivalAirport = "Luton",
                    ArrivalAirportCode = "LTN",
                    ArrivalTime = new DateTime(2014, 6, 2, 12, 0, 0),
+                   SeatsOnFlight = 175,
+                   SeatsBooked = 0
                },
                new Flight
                {
@@ -75,6 +83,8 @@ namespace MonarchTestBooking.Tests.Controllers
                    ArrivalAirport = "Luton",
                    ArrivalAirportCode = "LTN",
                    ArrivalTime = new DateTime(2014, 6, 3, 16, 3, 0),
+                   SeatsOnFlight = 175,
+                   SeatsBooked = 0
                },
                new Flight
                {
@@ -86,6 +96,8 @@ namespace MonarchTestBooking.Tests.Controllers
                    ArrivalAirport = "Barcelona",
                    ArrivalAirportCode = "BCN",
                    ArrivalTime = new DateTime(2014, 6, 2, 16, 30, 0),
+                   SeatsOnFlight = 175,
+                   SeatsBooked = 0
                },
                new Flight
                {
@@ -97,6 +109,8 @@ namespace MonarchTestBooking.Tests.Controllers
                    ArrivalAirport = "Luton",
                    ArrivalAirportCode = "LTN",
                    ArrivalTime = new DateTime(2014, 6, 4, 2, 0, 0),
+                   SeatsOnFlight = 175,
+                   SeatsBooked = 0
                },
                new Flight
                {
@@ -108,6 +122,8 @@ namespace MonarchTestBooking.Tests.Controllers
                    ArrivalAirport = "Los Angeles International Airport",
                    ArrivalAirportCode = "LAX",
                    ArrivalTime = new DateTime(2014, 6, 3, 20, 0, 0),
+                   SeatsOnFlight = 175,
+                   SeatsBooked = 0
                }
 
            }.AsQueryable();
@@ -171,6 +187,16 @@ namespace MonarchTestBooking.Tests.Controllers
             Assert.AreEqual(flight.DepartureAirportCode, "LTN");
             Assert.AreEqual(flight.ArrivalAirportCode, "BCN");
         }
-        
+
+        [Test]
+        public void BookSeat()
+        {
+            Flight flight = _bookingService.GetFlight("0001");
+            int before = flight.SeatsBooked;
+
+            _bookingService.BookSeat(flight.FlightNumber);
+
+            Assert.AreEqual(before +1, flight.SeatsBooked);
+        }
     }
 }

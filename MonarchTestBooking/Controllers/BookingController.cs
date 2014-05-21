@@ -48,23 +48,29 @@ namespace MonarchTestBooking.Controllers
             if (flight == null)
             {
                 vm.Message = "Flight not found";
-                return View(vm);
             }
 
-            var cancelled = service.UpdateStatus(flightNumber, FlightStatus.Cancelled);
-            if (cancelled)
-            {
-                vm.Success = true;
-                vm.Message = string.Format("Flight Number {0} has been cancelled", flight.FlightNumber);
-            }
-            else
+            // Check if the flight is already Cancelled
+            else if (flight.FlightStatus == FlightStatus.Cancelled)
             {
                 //TODO Add Logger and log exception
-                vm.Message = string.Format("Error cancelling Flight Number {0}", flight.FlightNumber);
+                vm.Message = string.Format("Flight {0} is already cancelled", flight.FlightNumber);
             }
+            else { 
+                var cancelled = service.UpdateStatus(flightNumber, FlightStatus.Cancelled);
+                if (cancelled)
+                {
+                    vm.Success = true;
+                    vm.Message = string.Format("Flight Number {0} has been cancelled", flight.FlightNumber);
+                }
+                else
+                {
+                    //TODO Add Logger and log exception
+                    vm.Message = string.Format("Error cancelling Flight Number {0}", flight.FlightNumber);
+                }
+            }
+            
             return View(vm);
-
         }
-
 	}
 }
