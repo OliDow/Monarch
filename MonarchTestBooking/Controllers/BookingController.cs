@@ -56,7 +56,8 @@ namespace MonarchTestBooking.Controllers
                 //TODO Add Logger and log exception
                 vm.Message = string.Format("Flight {0} is already cancelled", flight.FlightNumber);
             }
-            else { 
+            else
+            {
                 var cancelled = service.UpdateStatus(flightNumber, FlightStatus.Cancelled);
                 if (cancelled)
                 {
@@ -69,8 +70,44 @@ namespace MonarchTestBooking.Controllers
                     vm.Message = string.Format("Error cancelling Flight Number {0}", flight.FlightNumber);
                 }
             }
-            
+
             return View(vm);
         }
-	}
+
+        public ActionResult BookSeat(string flightNumber)
+        {
+            // TODO Setup some sort of DI and inject this, to remove EF reference and east testing
+            MonarchContext context = new MonarchContext();
+            BookingService service = new BookingService(context);
+
+            var vm = new SeatBookedViewModel();
+            Flight flight = service.GetFlight(flightNumber);
+
+            // Display error if the flight Can#t be found
+            if (flight == null)
+            {
+                vm.Message = "Flight not found";
+            }
+            else if (flight.SeatsBooked >= flight.SeatsOnFlight)
+            {
+                vm.Message = string.Format("Flight {0} is already at capacity", flight.FlightNumber);
+            }
+            else
+            {
+                var booked = service.BookSeat(flightNumber);
+                if (booked)
+                {
+                    vm.Message = string.Format("A seat on Flight Number {0} has been booked successfully",flight.FlightNumber);
+                    vm.Success = true;
+                }
+                else
+                {
+                    //TODO Add Logger and log exception
+                    vm.Message = string.Format("Error booking a seat on Flight Number {0}", flight.FlightNumber);
+                }
+            }
+
+            return View(vm);
+        }
+    }
 }
