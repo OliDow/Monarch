@@ -1,0 +1,22 @@
+﻿@model MonarchTestBooking.ViewModels.Booking.CancellationViewModel
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>Flight Cancelation</h2>
+@if (@Model.Success)
+{
+    <p class="alert-success">
+        @Model.Message
+    </p>
+}
+else
+{
+    <p class="alert-info">
+        @Model.Message
+    </p>
+}
+
+
+<p>@Html.ActionLink("Return to flight listing", "Index", "Booking"))</p>

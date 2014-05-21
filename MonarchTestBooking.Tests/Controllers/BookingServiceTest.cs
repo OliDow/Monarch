@@ -162,6 +162,15 @@ namespace MonarchTestBooking.Tests.Controllers
 
             Assert.AreEqual(1, cancelledFlightCount);
         }
+
+        [Test]
+        public void GetFlight()
+        {
+            Flight flight = _bookingService.GetFlight("0003");
+
+            Assert.AreEqual(flight.DepartureAirportCode, "LTN");
+            Assert.AreEqual(flight.ArrivalAirportCode, "BCN");
+        }
         
     }
 }
