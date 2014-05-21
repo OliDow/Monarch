@@ -4,7 +4,12 @@ Monarch
 
 
 Database Script
+
+
+
+
 USE [Monarch]
+
 GO
 INSERT [dbo].[Flights] ([Id], [FlightNumber], [FlightStatus], [DepartureAirport], [DepartureAirportCode], [DepartureTime], [ArrivalAirport], [ArrivalAirportCode], [ArrivalTime], [SeatsOnFlight], [SeatsBooked]) VALUES (N'c56a4180-65aa-42ec-a945-5fd21dec0529', N'00008', 0, N'Luton', N'LTN', CAST(0x0000A33F00C5C100 AS DateTime), N'LA', N'LAX', CAST(0x0000A33F01499700 AS DateTime), 175, 0)
 INSERT [dbo].[Flights] ([Id], [FlightNumber], [FlightStatus], [DepartureAirport], [DepartureAirportCode], [DepartureTime], [ArrivalAirport], [ArrivalAirportCode], [ArrivalTime], [SeatsOnFlight], [SeatsBooked]) VALUES (N'c56a4180-65aa-42ec-a945-5fd21dec0530', N'00007', 0, N'Barcelona', N'BCN', CAST(0x0000A33F016A8C80 AS DateTime), N'Barcelona', N'BCN', CAST(0x0000A3400020F580 AS DateTime), 175, 0)
