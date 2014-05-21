@@ -40,6 +40,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BaseClasses\BaseModel.cs" />
+    <Compile Include="BookingSearchParams.cs" />
     <Compile Include="Flight.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

@@ -132,6 +132,16 @@ namespace MonarchTestBooking.Tests.Controllers
             Assert.AreEqual(8, flightList.Count);
         }
 
-        
+        [Test]
+        public void ListFlights_OrderByDepartureDate()
+        {
+            var searchParams = new BookingSearchParams();
+            var flightList = _bookingService.SearchBookingFlights(searchParams);
+
+            Assert.AreEqual("0002", flightList[1].FlightNumber);
+            Assert.AreEqual("0003", flightList[7].FlightNumber);
+        }
+
+
     }
 }
