@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonarchTestBooking", "Monar
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonarchTestBooking.Tests", "MonarchTestBooking.Tests\MonarchTestBooking.Tests.csproj", "{4C2D37AC-2BB5-4DF1-BED9-2A87332F1E24}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonarchTestBooking.Models", "MonarchTestBooking.Models\MonarchTestBooking.Models.csproj", "{49537616-A91D-41A7-84C1-718F5F501D7A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MonarchTestBooking.Data", "MonarchTestBooking.Data\MonarchTestBooking.Data.csproj", "{3E715297-F7AC-4FD5-BAE4-4CD177E4ACB2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{4C2D37AC-2BB5-4DF1-BED9-2A87332F1E24}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4C2D37AC-2BB5-4DF1-BED9-2A87332F1E24}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4C2D37AC-2BB5-4DF1-BED9-2A87332F1E24}.Release|Any CPU.Build.0 = Release|Any CPU
+		{49537616-A91D-41A7-84C1-718F5F501D7A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{49537616-A91D-41A7-84C1-718F5F501D7A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{49537616-A91D-41A7-84C1-718F5F501D7A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{49537616-A91D-41A7-84C1-718F5F501D7A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3E715297-F7AC-4FD5-BAE4-4CD177E4ACB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3E715297-F7AC-4FD5-BAE4-4CD177E4ACB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3E715297-F7AC-4FD5-BAE4-4CD177E4ACB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3E715297-F7AC-4FD5-BAE4-4CD177E4ACB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
