@@ -142,6 +142,14 @@ namespace MonarchTestBooking.Tests.Controllers
             Assert.AreEqual("0003", flightList[7].FlightNumber);
         }
 
+        [Test]
+        public void ListFlights_DestinedForLAX()
+        {
+            var searchParams = new BookingSearchParams{ ArrivalAirportCode = "LAX"};
+            var flightList = _bookingService.SearchBookingFlights(searchParams);
+
+            Assert.AreEqual(2, flightList.Count);
+        }
 
     }
 }
