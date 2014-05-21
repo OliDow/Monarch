@@ -136,7 +136,7 @@ namespace MonarchTestBooking.Tests.Controllers
         public void ListFlights_OrderByDepartureDate()
         {
             var searchParams = new BookingSearchParams();
-            var flightList = _bookingService.SearchBookingFlights(searchParams);
+            var flightList = _bookingService.SearchFlights(searchParams);
 
             Assert.AreEqual("0002", flightList[1].FlightNumber);
             Assert.AreEqual("0003", flightList[7].FlightNumber);
@@ -146,9 +146,21 @@ namespace MonarchTestBooking.Tests.Controllers
         public void ListFlights_DestinedForLAX()
         {
             var searchParams = new BookingSearchParams{ ArrivalAirportCode = "LAX"};
-            var flightList = _bookingService.SearchBookingFlights(searchParams);
+            var flightList = _bookingService.SearchFlights(searchParams);
 
             Assert.AreEqual(2, flightList.Count);
+        }
+
+        [Test]
+        public void ListFlight_CheckCancellation()
+        {
+            var searchParams = new BookingSearchParams();
+
+            _bookingService.UpdateStatus("0001", FlightStatus.Cancelled);
+            var flightList = _bookingService.SearchFlights(searchParams);
+            var cancelledFlightCount = flightList.Count(f => f.FlightStatus == FlightStatus.Cancelled);
+
+            Assert.AreEqual(1, cancelledFlightCount);
         }
 
     }
