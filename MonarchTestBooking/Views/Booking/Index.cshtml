@@ -1,0 +1,52 @@
+﻿@model MonarchTestBooking.ViewModels.Booking.IndexViewModel
+
+@{
+    ViewBag.Title = "title";
+}
+
+<h2>All Flight</h2>
+
+@if (@Model.FullFlightList.Count > 0)
+{
+    foreach (var flight in @Model.FullFlightList)
+    {
+        <div class="list-group">
+            <div class="row">
+                <div class="col-sm-1"> @flight.FlightNumber</div>
+                <div class="col-sm-1"> @flight.DepartureAirport</div>
+                <div class="col-sm-1"> @flight.DepartureTime</div>
+                <div class="col-sm-1"> @flight.ArrivalAirport</div>
+                <div class="col-sm-1"> @flight.ArrivalTime</div>
+                <div class="col-sm-1"> @flight.FlightStatus</div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="warning">No flights found</div>
+}
+
+
+<h2>Flights Landing in LA</h2>
+
+@if (@Model.FullFlightList.Count > 0)
+{
+    foreach (var flight in @Model.SearchResults)
+    {
+        <div class="list-group">
+            <div class="row">
+                <div class="col-sm-1"> @flight.FlightNumber</div>
+                <div class="col-sm-1"> @flight.DepartureAirport</div>
+                <div class="col-sm-1"> @flight.DepartureTime</div>
+                <div class="col-sm-1"> @flight.ArrivalAirport</div>
+                <div class="col-sm-1"> @flight.ArrivalTime</div>
+                <div class="col-sm-1"> @flight.FlightStatus</div>
+            </div>
+        </div>
+    }
+}
+else
+{
+    <div class="warning">No flights found destined for LA</div>
+}

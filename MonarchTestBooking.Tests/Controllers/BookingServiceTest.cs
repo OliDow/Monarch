@@ -162,6 +162,6 @@ namespace MonarchTestBooking.Tests.Controllers
 
             Assert.AreEqual(1, cancelledFlightCount);
         }
-
+        
     }
 }
