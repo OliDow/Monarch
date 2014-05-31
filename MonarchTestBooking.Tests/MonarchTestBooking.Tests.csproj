@@ -106,7 +106,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\MonarchTestBooking.Data\MonarchTestBooking.Data.csproj">
-      <Project>{3e715297-f7ac-4fd5-bae4-4cd177e4acb2}</Project>
+      <Project>{3E715297-F7AC-4FD5-BAE4-4CD177E4ACB2}</Project>
       <Name>MonarchTestBooking.Data</Name>
     </ProjectReference>
     <ProjectReference Include="..\MonarchTestBooking.Models\MonarchTestBooking.Models.csproj">
